@@ -1,0 +1,28 @@
+{
+  "name": "adirebywani-smart-commerce",
+  "version": "1.0.0",
+  "description": "Full-stack fashion ecosystem with customer community, localized pricing, and admin automation",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace=packages/backend\" \"npm run start --workspace=packages/frontend\"",
+    "build": "npm run build --workspace=packages/frontend && npm run build --workspace=packages/backend",
+    "start": "npm run dev --workspace=packages/backend",
+    "test": "concurrently \"npm run test --workspace=packages/backend\" \"npm run test --workspace=packages/frontend\"",
+    "lint": "concurrently \"npm run lint --workspace=packages/backend\" \"npm run lint --workspace=packages/frontend\"",
+    "setup-env": "node scripts/setup-env.js",
+    "backend": "npm run dev --workspace=packages/backend",
+    "frontend": "npm run start --workspace=packages/frontend"
+  },
+  "workspaces": [
+    "packages/backend",
+    "packages/frontend"
+  ],
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
